@@ -19,6 +19,7 @@
       --amber-50: #fff9f0;
       --amber-400: #BA7517;
       --bg: #ffffff;
+      --bg-rgb: 255, 255, 255; /* Fixed for RGBA support */
       --bg-secondary: #f8faf9;
       --text: #1a1c1b;
       --text-muted: #52635c;
@@ -29,6 +30,7 @@
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0b120f;
+        --bg-rgb: 11, 18, 15;
         --bg-secondary: #121a16;
         --text: #e1e8e5;
         --text-muted: #94a39d;
@@ -49,12 +51,34 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ANIMATIONS */
+    @keyframes pulse-soft {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.85; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .badge-pulse {
+      animation: pulse-soft 3s infinite ease-in-out;
+      display: inline-block;
+      box-shadow: 0 0 12px rgba(186, 117, 23, 0.15);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating-icon {
+      display: inline-block;
+      animation: float 5s infinite ease-in-out;
+    }
+
     /* NAV GLASSMORPHISM */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(var(--bg), 0.8);
+      background: rgba(var(--bg-rgb), 0.8);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -284,17 +308,17 @@
   <h2 class="section-title reveal">Evidence-Based Solutions</h2>
   <div class="cards-grid">
     <div class="card reveal">
-      <div class="card-icon">🦶</div>
-      <div class="card-title">DFUCapp <span class="badge">Flagship</span></div>
+      <div class="card-icon floating-icon" style="animation-delay: 0s;">🦶</div>
+      <div class="card-title">DFUCapp <span class="badge badge-pulse">Flagship</span></div>
       <p class="card-desc">Advanced ulcer classification using Vision Transformers. Features real-time grading, specialist referral pathways, and full offline functionality for remote clinics.</p>
     </div>
     <div class="card reveal">
-      <div class="card-icon">🧠</div>
+      <div class="card-icon floating-icon" style="animation-delay: 0.5s;">🧠</div>
       <div class="card-title">Cognitive Shield</div>
       <p class="card-desc">Machine learning models detecting early-stage cognitive decline through glycemic variability patterns, validated against longitudinal NHANES data.</p>
     </div>
     <div class="card reveal">
-      <div class="card-icon">📈</div>
+      <div class="card-icon floating-icon" style="animation-delay: 1.2s;">📈</div>
       <div class="card-title">Epidemiology AI</div>
       <p class="card-desc">Population-scale risk modeling for chronic disease, helping health ministries allocate resources more effectively in high-risk zones.</p>
     </div>
