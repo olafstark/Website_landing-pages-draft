@@ -1,146 +1,229 @@
-# Terms of Use
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — Lam Med Tech</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --teal-50: #f0f9f6;
+      --teal-400: #1D9E75;
+      --teal-600: #0F6E56;
+      --teal-800: #085041;
+      --teal-900: #04342C;
+      --amber-50: #fff9f0;
+      --amber-100: #f5d08a;
+      --amber-800: #633806;
+      --bg: #ffffff;
+      --bg-secondary: #f8faf9;
+      --text: #1a1c1b;
+      --text-muted: #52635c;
+      --border: rgba(0,0,0,0.08);
+    }
 
-**App:** DFUCapp — Diabetic Foot Ulcer Screening  
-**Developer:** Tran Ngoc Hoang Phap  
-**Last Updated:** April 8, 2026  
-**Effective Date:** April 8, 2026
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b120f;
+        --bg-secondary: #121a16;
+        --text: #e1e8e5;
+        --text-muted: #94a39d;
+        --teal-50: #0d211a;
+        --teal-600: #2ecf9a;
+        --border: rgba(255,255,255,0.1);
+      }
+    }
 
----
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-## 1. Acceptance of Terms
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(var(--bg), 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 10%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-By downloading, installing, or using DFUCapp ("the App"), you agree to be bound by these Terms of Use. If you do not agree, do not use the App.
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--teal-600);
+      text-decoration: none;
+    }
 
-These Terms form a legally binding agreement between you and Tran Ngoc Hoang Phap, operating as Lamedtech ("we", "us", "our").
+    .policy-header {
+      padding: 80px 10% 40px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+    }
 
----
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--teal-900);
+      margin-bottom: 10px;
+    }
 
-## 2. Eligibility — Healthcare Professionals Only
+    .meta-info {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
 
-**The App is intended exclusively for licensed healthcare professionals**, including doctors, nurses, podiatrists, and clinical staff involved in the screening and management of diabetic foot conditions.
+    .content-area {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 10%;
+    }
 
-By using the App, you represent and warrant that:
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--teal-800);
+      margin: 40px 0 20px;
+      border-left: 4px solid var(--teal-400);
+      padding-left: 20px;
+    }
 
-- You are a licensed or credentialed healthcare professional
-- You are using the App in a professional clinical capacity
-- You have authority from your institution to use third-party clinical tools for patient documentation
-- You are at least 18 years of age
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 25px 0 10px;
+      color: var(--text);
+    }
 
-Account registration requires approval by an administrator before access to patient data is granted. We reserve the right to revoke access if these conditions are not met.
+    p { margin-bottom: 20px; color: var(--text-muted); }
 
----
+    ul { margin-bottom: 20px; padding-left: 20px; color: var(--text-muted); }
+    li { margin-bottom: 10px; }
 
-## 3. Clinical Decision Support — Not a Medical Device
+    /* Alert Box for Apple/Medical Compliance */
+    .alert-box {
+      background: var(--amber-50);
+      border: 1px solid var(--amber-100);
+      padding: 24px;
+      border-radius: 12px;
+      margin: 40px 0;
+      color: var(--amber-800);
+    }
 
-**DFUCapp is a clinical documentation and decision support tool. It is not a medical device and does not provide medical diagnoses.**
+    .alert-box h3 { color: var(--amber-800); margin-top: 0; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; }
 
-The AI-assisted wound classification feature:
+    footer { padding: 60px 10%; border-top: 1px solid var(--border); background: var(--bg); text-align: center; }
+    
+    .back-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--teal-600);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+    }
 
-- Provides a **suggested risk classification** based on image analysis
-- Is intended to **support**, not replace, the clinical judgement of a licensed healthcare professional
-- Must be **reviewed and confirmed** by the attending clinician before any clinical action is taken
-- Does not guarantee accuracy and may produce incorrect results
+    @media (max-width: 768px) {
+      nav, .policy-header, .content-area { padding-left: 5%; padding-right: 5%; }
+    }
+  </style>
+</head>
+<body>
 
-**We make no representations that use of the App will lead to any particular clinical outcome.** Clinical decisions remain the sole responsibility of the treating healthcare professional.
+<nav>
+  <a class="nav-brand" href="index.html">Lam Med Tech</a>
+</nav>
 
----
+<header class="policy-header">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <h1>Terms of Use</h1>
+    <div class="meta-info">
+        Last Updated: April 14, 2026<br>
+        Effective Date: April 14, 2026
+    </div>
+  </div>
+</header>
 
-## 4. User Responsibilities
+<main class="content-area">
+  
+  <section>
+    <h2>1. Acceptance of Agreement</h2>
+    <p>By downloading, accessing, or using <strong>DFUCapp</strong> (the "App"), you agree to be bound by these Terms of Use. These Terms constitute a legally binding agreement between you and <strong>Tran Ngoc Hoang Phap (operating as Lam Med Tech)</strong>. If you do not agree to these terms, you must immediately cease use of the App.</p>
+  </section>
 
-You are responsible for:
+  <section>
+    <h2>2. Eligibility & Professional Use</h2>
+    <p>The App is intended exclusively for <strong>licensed healthcare professionals</strong> (including MDs, Nurses, and Podiatrists) involved in diabetic care. By using the App, you warrant that:</p>
+    <ul>
+      <li>You possess the required medical credentials and licenses in your jurisdiction.</li>
+      <li>You are using the App within a professional clinical capacity.</li>
+      <li>You have authorized access from your healthcare institution to use digital clinical tools.</li>
+    </ul>
+    <p>We reserve the right to suspend accounts that cannot be verified against professional medical registries.</p>
+  </section>
 
-- **Accuracy of data entered** — ensuring patient information and clinical findings are correctly recorded
-- **Patient consent** — obtaining any consent required by your local laws and institutional policies before photographing patients or storing their clinical data
-- **Institutional compliance** — ensuring your use of the App complies with your employer's or institution's data governance, IT security, and patient privacy policies
-- **Credential security** — maintaining the confidentiality of your login credentials and reporting any unauthorised access immediately
-- **Exported data** — any PDF reports or data exported from the App; once exported, you and your institution are responsible for its handling and security
+  <section>
+    <h2>3. Medical Disclaimer & AI Support</h2>
+    <div class="alert-box">
+      <h3>Critical Safety Notice</h3>
+      <p><strong>DFUCapp is not a medical device.</strong> It is a clinical decision support and documentation tool. The AI classification feature provides automated suggestions based on computer vision, which must be verified by a human clinician. It does not replace professional medical judgment, diagnosis, or treatment.</p>
+    </div>
+    <p>Lam Med Tech makes no guarantees regarding the accuracy of AI-assisted risk levels. All clinical management plans and treatment decisions remain the sole legal responsibility of the attending healthcare professional.</p>
+  </section>
 
----
+  <section>
+    <h2>4. User Responsibilities</h2>
+    <p>As a professional user, you are responsible for:</p>
+    <ul>
+      <li><strong>Informed Consent:</strong> Obtaining and documenting patient consent for clinical photography and data processing in accordance with local regulations.</li>
+      <li><strong>Credential Security:</strong> Protecting your login credentials and utilizing the App's biometric lock features to prevent unauthorized access.</li>
+      <li><strong>Data Accuracy:</strong> Ensuring that all clinical findings and demographics entered into the system are correct.</li>
+    </ul>
+  </section>
 
-## 5. Prohibited Uses
+  <section>
+    <h2>5. Intellectual Property</h2>
+    <p>All source code, AI models, and design elements are the exclusive property of Lam Med Tech. We grant you a limited, non-transferable license to use the App for clinical purposes. You may not attempt to reverse-engineer the AI models or redistribute the App's proprietary interface.</p>
+  </section>
 
-You must not use the App to:
+  <section>
+    <h2>6. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, Lam Med Tech and its developers shall not be liable for any adverse clinical outcomes, patient harm, or loss of data resulting from the use or inability to use the App. The App is provided "as-is" without warranty of any kind.</p>
+  </section>
 
-- Store, process, or share patient data for any purpose other than direct clinical care
-- Allow unauthorised persons (including patients) to access the App using your credentials
-- Attempt to reverse-engineer, decompile, or tamper with the App or its AI models
-- Use the App as a standalone diagnostic tool without clinical oversight
-- Violate any applicable law, regulation, or professional code of conduct
-- Transmit malicious code or attempt to interfere with the App's infrastructure
+  <section>
+    <h2>7. Governing Law</h2>
+    <p>These Terms are governed by the laws of the <strong>Socialist Republic of Vietnam</strong>. Any disputes shall be settled under the exclusive jurisdiction of the competent courts in Vietnam.</p>
+  </section>
 
----
+  <section>
+    <h2>8. Contact</h2>
+    <p>For inquiries regarding these Terms or institutional licensing, please contact:</p>
+    <p><strong>Email:</strong> <a href="mailto:dfucapp.support@lamedtech.org" style="color: var(--teal-600);">dfucapp.support@lamedtech.org</a></p>
+  </section>
 
-## 6. Intellectual Property
+</main>
 
-All content, code, AI models, and design elements within the App are the intellectual property of Tran Ngoc Hoang Phap / Lamedtech, protected under applicable copyright and intellectual property laws.
+<footer>
+  <p>&copy; 2026 Lam Med Tech. All rights reserved.</p>
+</footer>
 
-Patient data you enter remains your data (or your institution's data). We claim no ownership over clinical records created through the App.
-
-You are granted a limited, non-exclusive, non-transferable licence to use the App for its intended clinical purpose only.
-
----
-
-## 7. Disclaimer of Warranties
-
-**The App is provided "as is" and "as available" without warranties of any kind**, express or implied, including but not limited to:
-
-- Fitness for a particular clinical purpose
-- Uninterrupted or error-free operation
-- Accuracy of AI-generated risk classifications
-- Compatibility with all devices or iOS versions
-
-Healthcare professionals must apply their own clinical judgement at all times.
-
----
-
-## 8. Limitation of Liability
-
-To the maximum extent permitted by applicable law, Tran Ngoc Hoang Phap and Lamedtech shall not be liable for:
-
-- Any clinical outcome, patient harm, or adverse event arising from use or misuse of the App
-- Loss or corruption of patient data
-- Indirect, incidental, special, or consequential damages of any kind
-- Interruption of service or downtime
-
-Our total liability in any circumstance shall not exceed the amount you paid for the App in the 12 months preceding the claim (if any).
-
-Nothing in these Terms excludes liability for gross negligence, fraud, or any liability that cannot be excluded by law.
-
----
-
-## 9. Privacy
-
-Your use of the App is also governed by our [Privacy Policy](./privacy-policy), which is incorporated into these Terms by reference.
-
----
-
-## 10. Governing Law and Dispute Resolution
-
-These Terms are governed by the laws of the **Socialist Republic of Vietnam**. Any disputes arising from or relating to these Terms shall be subject to the exclusive jurisdiction of the competent courts of Vietnam.
-
-If you are using the App outside Vietnam, you remain subject to these Terms while also complying with your local applicable laws.
-
----
-
-## 11. Changes to These Terms
-
-We may update these Terms from time to time. Material changes will be notified within the App. The "Last Updated" date reflects the most recent revision. Continued use of the App after changes are posted constitutes acceptance of the updated Terms.
-
----
-
-## 12. Termination
-
-We reserve the right to suspend or terminate your access to the App at any time, without notice, if you violate these Terms or if we reasonably believe your use poses a risk to patient data or App security.
-
----
-
-## 13. Contact
-
-For questions about these Terms:
-
-**Email:** [dfucapp.support@lamedtech.org](mailto:dfucapp.support@lamedtech.org)  
-**Developer:** Tran Ngoc Hoang Phap — Lamedtech
-
----
-
-*These Terms are provided in English. In case of conflict between translated versions and the English version, the English version prevails.*
+</body>
+</html>
