@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lam Med Tech — AI-Powered Medical Technology</title>
+  <meta name="description" content="Developing clinical decision support tools for underserved communities — starting with diabetic foot ulcer screening in SE Asia." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --teal-50: #f0f9f6;
+      --teal-400: #1D9E75;
+      --teal-600: #0F6E56;
+      --teal-900: #04342C;
+      --amber-50: #fff9f0;
+      --amber-400: #BA7517;
+      --bg: #ffffff;
+      --bg-secondary: #f8faf9;
+      --text: #1a1c1b;
+      --text-muted: #52635c;
+      --border: rgba(0,0,0,0.06);
+      --card-shadow: 0 10px 30px -10px rgba(0,0,0,0.04);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b120f;
+        --bg-secondary: #121a16;
+        --text: #e1e8e5;
+        --text-muted: #94a39d;
+        --teal-50: #0d211a;
+        --teal-600: #2ecf9a;
+        --border: rgba(255,255,255,0.08);
+        --card-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
+      }
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV GLASSMORPHISM */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(var(--bg), 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 10%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--teal-600);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      width: 34px;
+      height: 34px;
+      background: var(--teal-600);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(15, 110, 86, 0.2);
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: 0.2s; }
+    .nav-links a:hover { color: var(--teal-600); }
+
+    .nav-cta {
+      background: var(--teal-600);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 100px 10% 80px;
+      text-align: center;
+      background: radial-gradient(circle at top right, var(--teal-50), transparent 40%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-50);
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--teal-600);
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--teal-900);
+    }
+
+    h1 em { font-style: italic; font-weight: 400; color: var(--teal-400); }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+    }
+
+    /* STATS CARD */
+    .stats-strip { padding: 0 10% 80px; }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      background: var(--bg-secondary);
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: var(--teal-600);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .stat-label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* SOLUTIONS GRID */
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 80px 10%; }
+    .section-tag { color: var(--teal-400); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 2.5rem; margin-bottom: 40px; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--teal-600);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    }
+
+    .card-icon { font-size: 32px; margin-bottom: 20px; }
+    .card-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;}
+    .badge { background: var(--amber-50); color: var(--amber-400); font-size: 10px; padding: 4px 10px; border-radius: 50px; }
+    .card-desc { color: var(--text-muted); font-size: 15px; }
+
+    /* STORY SECTION */
+    .story-section { background: var(--bg-secondary); padding: 100px 10%; }
+    .story-content { max-width: 800px; margin: 0 auto; }
+    .story-quote {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      line-height: 1.4;
+      color: var(--teal-900);
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .team-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+    .chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer { padding: 60px 10%; border-top: 1px solid var(--border); background: var(--bg); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { color: var(--text-muted); font-size: 13px; text-decoration: none; }
+    .footer-links a.legal { font-weight: 700; color: var(--text); }
+
+    /* REVEAL ANIMATION */
+    .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 5%; }
+      .nav-links { display: none; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .hero { padding-top: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+    </div>
+    Lam Med Tech
+  </a>
+  <ul class="nav-links">
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="mailto:info@lamedtech.org" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-badge reveal">Establishing Clinical Equity</div>
+  <h1 class="reveal">AI-powered care for <em>underserved</em> communities</h1>
+  <p class="hero-sub reveal">Translating advanced medical research into accessible digital tools for primary healthcare providers across Southeast Asia.</p>
+  <div class="reveal">
+    <a href="#solutions" class="nav-cta" style="padding: 16px 32px; font-size: 16px; text-decoration:none;">View Our Portfolio</a>
+  </div>
+</header>
+
+<div class="stats-strip">
+  <div class="stats-inner reveal">
+    <div class="stat-item">
+      <span class="stat-num">463M</span>
+      <div class="stat-label">Diabetic Patients Globally</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">~25%</span>
+      <div class="stat-label">Risk of Foot Ulcers</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">80%</span>
+      <div class="stat-label">Preventable Amputations</div>
+    </div>
+  </div>
+</div>
+
+<section id="solutions" class="section-inner">
+  <div class="section-tag reveal">Product Ecosystem</div>
+  <h2 class="section-title reveal">Evidence-Based Solutions</h2>
+  <div class="cards-grid">
+    <div class="card reveal">
+      <div class="card-icon">🦶</div>
+      <div class="card-title">DFUCapp <span class="badge">Flagship</span></div>
+      <p class="card-desc">Advanced ulcer classification using Vision Transformers. Features real-time grading, specialist referral pathways, and full offline functionality for remote clinics.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">🧠</div>
+      <div class="card-title">Cognitive Shield</div>
+      <p class="card-desc">Machine learning models detecting early-stage cognitive decline through glycemic variability patterns, validated against longitudinal NHANES data.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">📈</div>
+      <div class="card-title">Epidemiology AI</div>
+      <p class="card-desc">Population-scale risk modeling for chronic disease, helping health ministries allocate resources more effectively in high-risk zones.</p>
+    </div>
+  </div>
+</section>
+
+<section id="story" class="story-section">
+  <div class="story-content reveal">
+    <div class="section-tag">Academic Heritage</div>
+    <p class="story-quote">"We believe the most sophisticated algorithms in the world are useless if they don't reach the community health station."</p>
+    <p style="margin-bottom: 30px; color: var(--text-muted);">Founded by a multidisciplinary team across Japan and Vietnam, we combine clinical expertise with machine learning to build tools that are peer-reviewed and locally relevant.</p>
+    <div class="team-chips">
+      <div class="chip"><strong>TP</strong> <span>Dr. Tran Ngoc Hoang Phap, Founder</span></div>
+      <div class="chip"><strong>MU</strong> <span>Mie University Research</span></div>
+      <div class="chip"><strong>VN</strong> <span>Ho Chi Minh City Pilot Program</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="nav-brand" style="margin-bottom: 10px;">Lam Med Tech</div>
+      <p style="font-size: 12px; color: var(--text-muted);">Ho Chi Minh City · Mie · Binh Duong</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="privacy.html" class="legal">Privacy Policy</a></li>
+      <li><a href="terms.html" class="legal">Terms of Use</a></li>
+      <li><a href="mailto:info@lamedtech.org">Contact</a></li>
+    </ul>
+    <div style="font-size: 12px; color: var(--text-muted); width: 100%; text-align: center; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 20px;">
+      &copy; 2026 Lam Med Tech. For clinical research and professional use only.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
